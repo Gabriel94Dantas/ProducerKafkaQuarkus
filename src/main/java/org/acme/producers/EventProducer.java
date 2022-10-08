@@ -19,7 +19,7 @@ public class EventProducer implements Closeable {
         this.producer = new KafkaProducer<String, String>(this.kafkaContext.kafkaProperties());
     }
 
-    public void send(Event event){
+    public void send(Event event) {
         ProducerRecord<String, String> record = new ProducerRecord<>(event.getType(),
                 event.getId(),
                 EventConverter.eventToJson(event));

@@ -22,6 +22,9 @@ public class KafkaContext {
         properties.setProperty(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         properties.setProperty(ProducerConfig.VALUE_SERIALIZER_CLASS_CONFIG, StringSerializer.class.getName());
         properties.setProperty(ProducerConfig.ACKS_CONFIG, "all");
+        properties.setProperty(ProducerConfig.RETRIES_CONFIG, "3");
+        properties.setProperty(ProducerConfig.RETRY_BACKOFF_MS_CONFIG, "1000");
+        properties.setProperty(ProducerConfig.RECONNECT_BACKOFF_MAX_MS_CONFIG, "1000");
         return properties;
     }
 
